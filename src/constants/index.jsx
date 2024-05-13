@@ -152,14 +152,14 @@ export const projects = [
 	},
 	{
 		id: 3,
-		type: "Personal Project",
-		title: "Red Store Web App",
-		desc: "Red Strore web app has simple functionality, a feature that you can see the product.",
+		type: "Freelance Project",
+		title: "Goodrich Air Solutions Inc.",
+		desc: "GASI web app has simple functionality, a feature that you can see the services that they offer and contact section where you send an email directly.",
 		content:
-			"This Website using HTML for structure, CSS for style, and Javascript for interactivity with vibrant visuals, and a user-friendly interface.",
-		technologies: "HTML, CSS, JavaScript, FontAwesome",
-		date: "12/12/2021",
-		url: "https://redstoreprojectwebsite.jaysonromero.com",
+			"This Website using React JS for structure and interactivity, Tailwind for style for a user-friendly interface.",
+		technologies: "React JS, Tailwind, JavaScript,FontAwesome, EmailJS,",
+		date: "02/12/2024",
+		url: "https://goodrichairsolutions.com/",
 		img: project3,
 	},
 	{
