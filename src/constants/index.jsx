@@ -41,18 +41,27 @@ export const navLinks = [
 	{
 		id: "home",
 		title: "Home",
+		link: "#home",
 	},
 	{
 		id: "projects",
 		title: "Projects",
+		link: "#projects",
 	},
 	{
 		id: "about-me",
 		title: "About Me",
+		link: "#about-me",
 	},
 	{
 		id: "contacts",
 		title: "Contacts",
+		link: "#contacts",
+	},
+	{
+		id: "blog",
+		title: "Blog",
+		link: "https://myblog-jaysonromero.vercel.app/",
 	},
 ]
 
@@ -135,7 +144,7 @@ export const projects = [
 			"Clothing Website using HTML for structure, CSS for style, and Javascript for interactivity with vibrant visuals, and a user-friendly interface.",
 		technologies: "HTML, CSS, JavaScript,",
 		date: "12/12/2021",
-		url: "http://clothingprojectwebsite.jaysonromero.com",
+		url: "http://clothingprojectwebsite.jaysonromero.io",
 		img: project1,
 	},
 	{
@@ -147,7 +156,7 @@ export const projects = [
 			"This Website using React for interactivity, Tailwind for style, React-Icons for icons, and Vite as build tool to ensures swift loading times.",
 		technologies: "React, Tailwind, Vite",
 		date: "12/12/2021",
-		url: "https://letsfood.jaysonromero.com",
+		url: "https://letsfood.jaysonromero.io",
 		img: project2,
 	},
 	{
@@ -377,23 +386,24 @@ export const features = [
 		content: [
 			{
 				id: 1,
-				title: "Web Developer Freelancer",
+				title: "Email Developer Associate",
 				img: "",
 				href: "",
 				description:
-					"Freelance Developer works with clients, businesses, or organizations on a contract or project basis to make apps or websites, test them, and put them online.",
-				date: "Apr 2022 - Present",
-				datetime: "2022-11-01",
+					"Help the Client in organizing the world’s information and making it universally accessible and useful by translating it into specifications and programming deliverables.",
+				date: "March 2025 - Present",
+				datetime: "2025-03-03",
 				category: {
 					title: "",
 					href: "",
 				},
 				author: [
 					{
-						name: "Self-Employed",
-						role: "Freelancer",
-						href: "https://jaysonromero.com",
-						imageUrl: "https://placehold.co/500x500?text=Logo",
+						name: "Accenture",
+						role: "Global Professional Services Company",
+						href: "https://www.accenture.com/ph-en",
+						imageUrl:
+							"https://e7.pngegg.com/pngimages/622/273/png-clipart-digital-video-accenture-digital-consultant-others-miscellaneous-purple-thumbnail.png",
 					},
 				],
 			},
@@ -404,7 +414,7 @@ export const features = [
 				href: "https://www.accenture.com/ph-en",
 				description:
 					"Provide Assistance services in order to ensure effective and efficient operation in IT Department to be able to meet established goals and objectives.",
-				date: "May 2022 - Present",
+				date: "May 2022 - Feb 2025",
 				datetime: "2022-03-19",
 				category: {
 					title: "",

@@ -1,9 +1,10 @@
 // IMAGE
 import { hero_img } from "../assets"
-// DATA
-import { tech } from "../constants"
+
 // REACT ICON
 import { PiHandWavingFill } from "react-icons/pi"
+
+import TechStack from "./TechStack"
 
 const Hero = () => {
 	return (
@@ -64,7 +65,8 @@ const Hero = () => {
 			</div>
 
 			{/* ----------TECT STACK--------------*/}
-			<div className="flex flex-wrap gap-12 items-center justify-start lg:my-20 xl:px-0 sm:px-16 px-6">
+			<TechStack />
+			{/* <div className="flex flex-wrap gap-12 items-center justify-start lg:my-20 xl:px-0 sm:px-16 px-6">
 				<h1 className="text-white font-poppins text-[18px] font-bold border-b-2 lg:border-b-0  lg:border-r-2 border-secondary pb-5 lg:pr-10 lg:pb-0">
 					Tech Stack
 				</h1>
@@ -79,7 +81,7 @@ const Hero = () => {
 						</li>
 					))}
 				</ul>
-			</div>
+			</div> */}
 		</section>
 	)
 }

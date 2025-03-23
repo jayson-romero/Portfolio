@@ -4,12 +4,19 @@ import { Dialog, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 // COMPONENT
 import Button from "../components/Button"
+import client from "../client"
+import imageUrlBuilder from "@sanity/image-url"
+import { PortableText } from "@portabletext/react"
+
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+	return builder.image(source)
+}
 
 const ProjectModal = ({
 	closeModal,
 	type,
 	title,
-	desc,
 	content,
 	technologies,
 	url,
@@ -58,9 +65,6 @@ const ProjectModal = ({
 														<h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
 															{title}
 														</h1>
-														<p className="mt-6 text-xl leading-8 text-dimWhite">
-															{desc}
-														</p>
 													</div>
 												</div>
 											</div>
@@ -68,14 +72,17 @@ const ProjectModal = ({
 											<div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
 												<img
 													className="w-[48rem] max-w-none rounded-xl bg-secondary shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-													src={img}
+													src={urlFor(img).url()}
 													alt=""
 												/>
 											</div>
 											<div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
 												<div className="lg:pr-4 font-poppins">
 													<div className="max-w-xl text-base leading-7 text-dimWhite lg:max-w-lg">
-														<p>{content}</p>
+														<article className="prose prose-blue prose-md dark:prose-invert">
+															<PortableText value={content} />
+														</article>
+
 														<ul
 															role="list"
 															className="mt-8 space-y-4 text-dimWhite"
@@ -86,7 +93,24 @@ const ProjectModal = ({
 																	<strong className="font-semibold text-white">
 																		Technologies:
 																	</strong>{" "}
-																	{technologies}
+																	{technologies &&
+																		technologies.map((tech) => (
+																			<div
+																				className="flex gap-2"
+																				key={tech.name}
+																			>
+																				<img
+																					className="w-[20px] h-[20px] "
+																					src={
+																						tech.image
+																							? urlFor(tech.image).url()
+																							: "null"
+																					}
+																					alt=""
+																				/>
+																				<p>{tech.name}</p>
+																			</div>
+																		))}
 																</span>
 															</li>
 
@@ -113,12 +137,12 @@ const ProjectModal = ({
 															Have any projects in mind? <br /> Let's make it
 															happen.
 														</h2>
-														<p className="mt-6">
+														{/* <p className="mt-6">
 															Excited about a web project? Let's make it happen!
 															I'm here to turn your ideas into reality. From
 															concept to creation, let's collaborate and bring
 															your vision to life.
-														</p>
+														</p> */}
 
 														{/* ----- BUTTON TO EXIT MODAL---------  */}
 														<Button

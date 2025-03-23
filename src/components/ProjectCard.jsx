@@ -3,15 +3,23 @@ import ProjectModal from "./ProjectModal"
 // REACT COMPONENT
 import { useState } from "react"
 
+import client from "../client"
+import imageUrlBuilder from "@sanity/image-url"
+
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+	return builder.image(source)
+}
+
 const ProjectCard = ({
-	type,
-	title,
-	desc,
-	content,
+	slug,
+	name,
+	projectType,
+	details,
 	technologies,
 	date,
 	url,
-	img,
+	image,
 }) => {
 	// useState for Modal
 	let [isOpen, setIsOpen] = useState(false)
@@ -30,7 +38,7 @@ const ProjectCard = ({
 		>
 			{/* ----- IMAGE -------  */}
 			<img
-				src={img}
+				src={urlFor(image).url()}
 				alt="double_qoutes"
 				className="w-full  rounded-[20px] object-contain bg-gradient-to-r from-secondary via-[#faa307] to-[#f48c06]"
 			/>
@@ -39,25 +47,36 @@ const ProjectCard = ({
 			<div className="flex flex-row">
 				<div className="flex flex-col ml-4 my-10">
 					<h4 className="font-poppins font-semibold text-[20px] leading-[32px] text-white">
-						{title}
+						{name}
 					</h4>
 
-					<p className="font-poppins font-normal text-[16px] leading-[24px] text-dimWhite">
-						{type}
+					<p className="font-poppins font-normal text-[16px] leading-[24px] text-dimWhite mb-2">
+						{projectType}
 					</p>
+					<div className="flex">
+						{technologies &&
+							technologies.map((tech) => (
+								<img
+									key={tech.name}
+									src={urlFor(tech.image).url()}
+									alt="tech logo"
+									className="w-[25px] h-[25px]"
+								/>
+							))}
+					</div>
 				</div>
 			</div>
 
 			{/* ---------- MODAL ----------  */}
 			<ProjectModal
-				type={type}
-				title={title}
-				desc={desc}
-				content={content}
+				type={projectType}
+				title={name}
+				desc={details}
+				content={details}
 				technologies={technologies}
 				date={date}
 				url={url}
-				img={img}
+				img={image}
 				closeModal={closeModal}
 				isOpen={isOpen}
 			/>

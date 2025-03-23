@@ -65,9 +65,9 @@ const AboutMe = () => {
 				<p
 					className={`font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
 				>
-					I’m a self-taught Web Developer based in Quezon City, Philippines. My
-					passion are crafting user-friendly websites with creative solutions.
-					With expertise in front-end and responsive design.
+					I’m a Web Developer based in Quezon City, Philippines. My passion are
+					crafting user-friendly websites with creative solutions. With
+					expertise in front-end and responsive design.
 				</p>
 
 				{/* ---------DOWNLOAD CV BUTTON------------  */}

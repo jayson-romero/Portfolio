@@ -1,9 +1,33 @@
 // DATA
 import { projects } from "../constants"
+
 // COMPONENT
 import ProjectCard from "./ProjectCard"
 
+import client from "../client.js"
+import { useEffect, useState } from "react"
+
 const Projects = () => {
+	const [allPostsData, setAllPosts] = useState(null)
+
+	useEffect(() => {
+		client
+			.fetch(
+				`*[_type == "project"] | order(_createdAt desc) {
+    "slug": slug.current ,
+	name,
+	projectType,
+	details,
+	technologies[]->{name, image},
+	date,
+	url,
+	image,
+}`
+			)
+			.then((data) => setAllPosts(data))
+			.catch(console.error)
+	}, [])
+
 	return (
 		<section
 			id="projects"
@@ -29,9 +53,8 @@ const Projects = () => {
 
 			{/* ------------- PROJECT CARDS ------------------  */}
 			<div className="flex flex-wrap sm:justify-start justify-center w-full feedback-container relative z-[1]">
-				{projects.map((card) => (
-					<ProjectCard key={card.id} {...card} />
-				))}
+				{allPostsData &&
+					allPostsData.map((post) => <ProjectCard key={post.slug} {...post} />)}
 			</div>
 		</section>
 	)
